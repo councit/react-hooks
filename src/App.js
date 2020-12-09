@@ -2,6 +2,7 @@ import styled from "styled-components";
 //components
 import Counter from "./components/UseStateCounter";
 import StateForm from "./components/StateForm";
+import ApiDisplay from "./components/ApiDisplay";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1>React Hooks</h1>
       <Counter />
       <StateForm />
+      <ApiDisplay />
     </StyledApp>
   );
 }

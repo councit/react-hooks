@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useForm } from "./useForm";
 
 const StateForm = () => {
-  const [values, handleChange] = useForm({ email: "", password: "" });
+  const [values, handleChange] = useForm({ email: "", password: "", name: "" });
   return (
     <div>
       <h2>UseState with Custom Hook</h2>
@@ -18,6 +18,12 @@ const StateForm = () => {
           type="password"
           name="password"
           value={values.password}
+          onChange={handleChange}
+        ></input>
+        <input
+          type="name"
+          name="name"
+          value={values.name}
           onChange={handleChange}
         ></input>
       </StyledForm>
