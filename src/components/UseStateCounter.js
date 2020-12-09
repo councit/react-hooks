@@ -3,21 +3,46 @@ import styled from "styled-components";
 
 const Counter = () => {
   //state management
-  const [count, setCount] = useState(0);
+  const [{ count1, count2 }, setCount] = useState({ count1: 0, count2: 0 });
 
   return (
     <StyledCounter>
       <h2>UseState to Manage Counter </h2>
-      <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>Increase Counter</button>
+      <p>{count1}</p>
+      <p>{count2}</p>
       <button
-        onClick={() => {
-          setCount(count - 1);
-        }}
+        onClick={() =>
+          setCount((currentCountState) => ({
+            ...currentCountState,
+            count1: currentCountState.count1 + 1,
+            count2: currentCountState.count2 + 5,
+          }))
+        }
+      >
+        Increase Counter
+      </button>
+      <button
+        onClick={() =>
+          setCount((currentCountState) => ({
+            ...currentCountState,
+            count1: currentCountState.count1 - 1,
+            count2: currentCountState.count2 - 5,
+          }))
+        }
       >
         Decrease Counter
       </button>
-      <button onClick={() => setCount(0)}>Reset Counter</button>
+
+      <button
+        onClick={() =>
+          setCount((state) => ({
+            count1: 0,
+            count2: 0,
+          }))
+        }
+      >
+        Reset Counter
+      </button>
     </StyledCounter>
   );
 };
